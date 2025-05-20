@@ -11,4 +11,9 @@ public class CakesController {
     public String getMainPage() {
         return "main";
     }
+
+    @GetMapping("/cake")
+    public String getCakePage() {
+        return "cake-card";
+    }
 }

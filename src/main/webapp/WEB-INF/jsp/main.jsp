@@ -41,7 +41,8 @@
 
                     <div class="view-cakes">
                         <div class="cake"
-                             style="background-image: url('/images/cakes/klykvenniy.png')">
+                             style="background-image: url('/images/cakes/klykvenniy.png')"
+                             onclick="location.href='<c:url value="/tortikov/cake"/>'">
                             <img class="berry"
                                  style="left: -8rem; bottom: 3rem"
                                  src="<c:url value="/images/berry-2.png"/>"
@@ -85,64 +86,64 @@
                          src="<c:url value="/images/berry-3.png"/>"
                          alt="Ягода">
 
-                    <img class="cake-image"
+                    <img class="cakes__cake-image"
                          src="<c:url value="/images/cakes/napoleon.png"/>"
                          alt="Наполеон">
 
-                    <div class="cake-name">Наполеон</div>
+                    <div class="cakes__cake-name">Наполеон</div>
 
-                    <div class="cake-description">
+                    <div class="cakes_cake-description">
                         Многие, отдавая предпочтение классике, сделают выбор в пользу «Наполеона».
                         Испечь его может каждый, так как состав предельно простой...
                     </div>
                 </div>
 
                 <div class="cakes-cake">
-                    <img class="cake-image"
+                    <img class="cakes__cake-image"
                          src="<c:url value="/images/cakes/praga.png"/>"
                          alt="Прага">
 
-                    <div class="cake-name">Прага</div>
+                    <div class="cakes__cake-name">Прага</div>
 
-                    <div class="cake-description">
+                    <div class="cakes__cake-description">
                         Классическая «Прага» с глубоким вкусом поразит в самое сердце любителей шоколада!
                     </div>
                 </div>
 
                 <div class="cakes-cake">
-                    <img class="cake-image"
+                    <img class="cakes__cake-image"
                          src="<c:url value="/images/cakes/blinniy.png"/>"
                          alt="Блинный торт">
 
-                    <div class="cake-name">Блинный торт</div>
+                    <div class="cakes__cake-name">Блинный торт</div>
 
-                    <div class="cake-description">
+                    <div class="cakes__cake-description">
                         Простой блинный торт можно спокойно подать без повода.
                         Изделие очень просто готовится, если уже отработан навык приготовления тонких блинчиков.
                     </div>
                 </div>
 
                 <div class="cakes-cake">
-                    <img class="cake-image"
+                    <img class="cakes__cake-image"
                          src="<c:url value="/images/cakes/morkovniy.png"/>"
                          alt="Морковный торт">
 
-                    <div class="cake-name">Морковный торт</div>
+                    <div class="cakes__cake-name">Морковный торт</div>
 
-                    <div class="cake-description">
+                    <div class="cakes__cake-description">
                         Морковь, орехи и нежный сыр — главные составляющие этого торта.
                         Обычно на него обращают внимание истинные гурманы, способные разглядеть в простом овоще огромный потенциал!
                     </div>
                 </div>
 
                 <div class="cakes-cake">
-                    <img class="cake-image"
+                    <img class="cakes__cake-image"
                          src="<c:url value="/images/cakes/molochniy.png"/>"
                          alt="Молочная девочка">
 
-                    <div class="cake-name">“Молочная девочка”</div>
+                    <div class="cakes__cake-name">“Молочная девочка”</div>
 
-                    <div class="cake-description">
+                    <div class="cakes__cake-description">
                         Если на приготовление торта у вас есть всего 1 час, выбирайте «Молочную девочку»!
                         Доступные продукты, простой рецепт, а результат превосходит все ожидания.
                         Украшайте десерт по вкусу: фрукты, ягоды, мастика — подойдет все.
@@ -155,13 +156,13 @@
                          src="<c:url value="/images/berry-2.png"/>"
                          alt="Ягода">
 
-                    <img class="cake-image"
+                    <img class="cakes__cake-image"
                          src="<c:url value="/images/cakes/tryfelniy.png"/>"
                          alt="Трюфельный торт">
 
-                    <div class="cake-name">Трюфельный торт</div>
+                    <div class="cakes__cake-name">Трюфельный торт</div>
 
-                    <div class="cake-description">
+                    <div class="cakes__cake-description">
                         Вот еще один вариант мегашоколадного лакомства.
                         Терпкий трюфельный вкус начинки и нежный бисквит — так в двух словах можно описать торт.
                     </div>

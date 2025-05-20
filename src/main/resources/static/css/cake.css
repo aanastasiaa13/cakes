@@ -1,0 +1,49 @@
+.cake-container {
+    background-image: url('../images/cake-card-background.png');
+    padding: 0 117px;
+}
+
+.cake-info {
+    display: flex;
+    margin-top: 10rem;
+    justify-content: space-between;
+}
+
+.cake-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.cake-image {
+    width: 500px;
+    height: 500px;
+    box-shadow: 0 15px 36px 10px rgb(0 0 0 / 20%);
+    border-radius: 90px;
+}
+
+.cake-description {
+    margin: 100px 0;
+}
+
+.cake-price {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 3rem;
+}
+
+.cart {
+    margin-left: 1rem;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px 0 rgba(34, 60, 80, 0.2);
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.cart:hover {
+    background: #f1f1f1;
+}
