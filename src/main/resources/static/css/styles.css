@@ -1,4 +1,5 @@
 body {
+    position: relative;
     margin: 0;
     font-family: 'Jost', sans-serif;
     font-size: 30px;
@@ -17,78 +18,35 @@ ul {
     font-size: 25px;
 }
 
-.container {
+header {
+    position: fixed;
+    background: #ffffff;
+    height: 200px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* VIEW */
-
-.view-container {
-    background-image: url('../images/main-background.png');
-    height: 1223px;
+._container {
     padding: 0 117px;
 }
 
-.view-container__info {
-}
-
-.view-cakes {
-    display: flex;
-    justify-content: space-between;
-    height: 453px;
-    width: 680px;
-}
-
-.cake {
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: end;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 300;
-    background-size: cover;
-    height: 321px;
-    width: 300px;
-    box-shadow: 0 15px 36px 10px rgb(0 0 0 / 20%);
-    border-radius: 68px;
-
-    transition: 0.3s ease;
-}
-
-.cake:hover {
-    transform: scale(102%);
-}
-
-.cake div {
-    display: flex;
-    padding: 30px;
-}
-
-.berry {
-    position: absolute;
-    height: 150px;
-}
-
-.account-container {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+.icon-container {
     background: #ffffff;
-    padding: 0.5rem;
+    display: flex;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 4px 4px 15px 0 rgba(34, 60, 80, 0.2);
+    margin-right: 1rem;
 }
 
-.title {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 3em;
-    width: 60%;
-}
-
-.subtitle {
-    margin: 40px 0;
-}
+/* BUTTON */
 
 button {
     cursor: pointer;
@@ -108,6 +66,8 @@ button {
 button:hover {
     background: #ff1c79;
 }
+
+/* LINK */
 
 .link {
     position: relative;
@@ -130,92 +90,7 @@ button:hover {
     width: 100%;
 }
 
-/* CAKES */
-
-.cakes-container {
-    background-image: url('../images/list-background.png');
-    height: 1930px;
-    padding: 0 117px;
-}
-
-.cakes-container__title {
-    display: flex;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    font-weight: bold;
-}
-
-.cakes-container__cakes {
-    margin: 200px 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.cakes-cake {
-    cursor: pointer;
-    position: relative;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    transition: 0.3s ease;
-}
-
-.cakes-cake:hover {
-    transform: scale(102%);
-}
-
-.cake-image {
-    box-shadow: 0 15px 36px 10px rgb(0 0 0 / 20%);
-    border-radius: 40px 40px 20px 20px;
-}
-
-.cake-name {
-    font-size: 3rem;
-    font-weight: 500;
-    padding: 30px 0;
-}
-
-.cake-description {
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 10rem;
-}
-
-/* CONTACT */
-
-.contact-container {
-    background-image: url('../images/contact-background.png');
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    height: 900px;
-    padding: 0 117px;
-}
-
-.request-form {
-    position: relative;
-    background: #ffffff;
-    border-radius: 68px;
-    box-shadow: 0 4px 20px 4px rgb(0 0 0 / 20%);
-    padding: 30px 80px;
-}
-
-.request-form__title {
-    font-weight: bold;
-}
-
-.request-form__subtitle {
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    margin: 20px 0 50px 0;
-}
+/* FOOTER */
 
 .footer-title {
     font-size: 1.2rem;
@@ -229,11 +104,16 @@ button:hover {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 230px 0 50px 0;
 }
+
+/* --- */
 
 .mt-3 {
     margin-top: 3rem;
@@ -255,6 +135,10 @@ footer {
     flex-direction: column;
 }
 
+.justify-content-center {
+    justify-content: center;
+}
+
 .justify-content-between {
     justify-content: space-between;
 }
@@ -269,25 +153,4 @@ footer {
 
 .position-relative {
     position: relative;
-}
-
-.form-input {
-    background: #EDEDED;
-    border: none;
-    border-radius: 30px;
-    height: 80px;
-    padding: 30px;
-    width: 55%;
-    font-family: 'Jost', sans-serif;
-    font-size: 1.2rem;
-
-    transition: 0.3s ease;
-}
-
-.form-input:hover {
-    background: #d0d0d0;
-}
-
-input:focus {
-    outline: none;
 }

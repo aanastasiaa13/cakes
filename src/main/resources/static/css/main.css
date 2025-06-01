@@ -1,0 +1,118 @@
+/* VIEW */
+
+.view-container {
+    background-image: url('../images/main-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1223px;
+    margin-top: 200px;
+}
+
+.view-container__info {
+}
+
+.view-cakes {
+    display: flex;
+    justify-content: space-between;
+    height: 453px;
+    width: 680px;
+}
+
+.cake {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: end;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 300;
+    background-size: cover;
+    height: 321px;
+    width: 300px;
+    box-shadow: 0 15px 36px 10px rgb(0 0 0 / 20%);
+    border-radius: 68px;
+
+    transition: 0.3s ease;
+}
+
+.cake:hover {
+    transform: scale(102%);
+}
+
+.cake div {
+    display: flex;
+    padding: 30px;
+}
+
+.berry {
+    position: absolute;
+    height: 150px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 3em;
+    width: 60%;
+}
+
+.subtitle {
+    margin: 40px 0;
+}
+
+/* CAKES */
+
+.cakes-container {
+    background-image: url('../images/list-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 2400px;
+    padding: 0 117px;
+}
+
+.cakes-container__title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.cakes-container__cakes {
+    margin: 200px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cakes-cake {
+    cursor: pointer;
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: 0.3s ease;
+}
+
+.cakes-cake:hover {
+    transform: scale(102%);
+}
+
+.cake-image {
+    box-shadow: 0 15px 36px 10px rgb(0 0 0 / 20%);
+    border-radius: 40px 40px 20px 20px;
+}
+
+.cake-name {
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 30px 0;
+}
+
+.cake-description {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 10rem;
+}

@@ -1,0 +1,40 @@
+.cake-container {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/main-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1120px;
+    margin-top: 250px;
+}
+
+.cake {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cake-info {
+    width: 60%;
+}
+
+.cake-name {
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+}
+
+.cake-description {
+    margin: 60px 0;
+}
+
+.cake-image {
+    width: 500px;
+    height: 500px;
+}
+
+.cake-price {
+    font-weight: bold;
+    font-family: 'Playfair Display' ,serif;
+    margin-right: 30px;
+}
