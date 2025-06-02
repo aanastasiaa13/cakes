@@ -4,7 +4,7 @@
     background-image: url('../images/main-background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 1223px;
+    height: 970px;
     margin-top: 200px;
 }
 
@@ -68,6 +68,7 @@
     background-repeat: no-repeat;
     height: 2400px;
     padding: 0 117px;
+    box-shadow: 0 15px 95px 120px rgb(255 255 255);
 }
 
 .cakes-container__title {
