@@ -105,15 +105,21 @@ public class MainController {
     public String editPage(@RequestParam("id") Long id,
                            @RequestParam("mode") String mode,
                            Model model) {
-        List<Cake> cakes = cakeService.findAll();
+        model.addAttribute("mode", mode);
+
+        if (mode.equals("users")) {
+            User user = userService.findById(id);
+
+            model.addAttribute("user", user);
+        }
 
         if (mode.equals("orders")) {
             Order order = orderService.findById(id);
+            List<Cake> cakes = cakeService.findAll();
 
             model.addAttribute("order", order);
+            model.addAttribute("cakes", cakes);
         }
-
-        model.addAttribute("cakes", cakes);
 
         return "edit";
     }

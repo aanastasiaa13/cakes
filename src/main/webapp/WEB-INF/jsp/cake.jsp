@@ -59,9 +59,9 @@
         </div>
 
         <c:if test="${!authorized}">
-            <div id="menu"
+            <div id="sign-in"
                  class="icon-container">
-                <i class="bi bi-list"></i>
+                <i class="bi bi-person"></i>
             </div>
         </c:if>
 
@@ -71,27 +71,6 @@
                 <i class="bi bi-box-arrow-right"></i>
             </div>
         </c:if>
-    </div>
-
-    <div class="sidebar">
-        <div id="sidebar-close"
-             class="close">
-            <i class="bi bi-x-square"></i>
-        </div>
-
-        <div class="sidebar-content">
-            <div id="sign-in"
-                 class="sidebar-content__item">
-                <i class="bi bi-person-add"></i>
-                Войти / Зарегистрироваться
-            </div>
-
-            <div id="admin-sign-in"
-                 class="sidebar-content__item">
-                <i class="bi bi-person-gear"></i>
-                Войти как администратор
-            </div>
-        </div>
     </div>
 </header>
 
@@ -168,6 +147,74 @@
     </div>
 </footer>
 
+<div id="modal"
+     class="modal">
+    <div class="modal-content">
+        <form class="needs-validation"
+              action="<c:url value="/tortikov/auth/sign-in"/>"
+              method="post"
+              novalidate>
+            <div class="modal-title__container">
+                <div class="modal-title">Войдите или зарегистрируйтесь</div>
+                <div id="modal-close"
+                     class="close">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </div>
+
+            <div class="modal-input__container">
+                <div id="fio"
+                     class="mb-3">
+                    <input type="text"
+                           class="form-control form-control-lg"
+                           name="fullName"
+                           placeholder="ФИО"
+                           aria-label="ФИО"
+                           required>
+                    <div class="invalid-feedback invalid-message">
+                        Укажите ФИО
+                    </div>
+                </div>
+
+                <div class="input-group input-group-lg has-validation mb-3">
+                    <span id="basic-addon1"
+                          class="input-group-text">
+                        <img src="/images/belarus-flag.svg"
+                             alt="">
+                    </span>
+                    <input type="tel"
+                           class="form-control form-control-lg phone-mask"
+                           name="phone"
+                           placeholder="+375(99)99-99-999"
+                           aria-label="Номер телефона"
+                           aria-describedby="inputGroupPrepend"
+                           required>
+                    <div class="invalid-feedback invalid-message">
+                        Укажите номер телефона
+                    </div>
+                </div>
+
+                <div>
+                    <input type="password"
+                           class="form-control form-control-lg"
+                           name="password"
+                           placeholder="Пароль"
+                           aria-label="Пароль"
+                           required>
+                    <div class="invalid-feedback invalid-message">
+                        Укажите пароль
+                    </div>
+                </div>
+            </div>
+
+            <button class="button-sign-in"
+                    type="submit">
+                Войти
+            </button>
+        </form>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous">
@@ -176,5 +223,15 @@
         integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
         crossorigin="anonymous">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"
+        type="text/javascript">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js"
+        type="text/javascript">
+</script>
+<script>
+    $(".phone-mask").mask("+375(99)99-99-999");
+</script>
+<script src="/js/script.js"></script>
 </body>
 </html>

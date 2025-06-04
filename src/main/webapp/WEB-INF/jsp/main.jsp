@@ -61,9 +61,9 @@
         </div>
 
         <c:if test="${!authorized}">
-            <div id="menu"
+            <div id="sign-in"
                  class="icon-container">
-                <i class="bi bi-list"></i>
+                <i class="bi bi-person"></i>
             </div>
         </c:if>
 
@@ -74,27 +74,6 @@
             </div>
         </c:if>
     </div>
-
-    <div class="sidebar">
-        <div id="sidebar-close"
-             class="close">
-            <i class="bi bi-x-square"></i>
-        </div>
-
-        <div class="sidebar-content">
-            <div id="sign-in"
-                 class="sidebar-content__item">
-                <i class="bi bi-person-add"></i>
-                Войти / Зарегистрироваться
-            </div>
-
-            <div id="admin-sign-in"
-                 class="sidebar-content__item">
-                <i class="bi bi-person-gear"></i>
-                Войти как администратор
-            </div>
-        </div>
-    </div>
 </header>
 
 <div class="view-container _container">
@@ -104,7 +83,8 @@
             <div>
                 <div class="subtitle">Авторские кондитерские изделия</div>
 
-                <button class="mt-3">
+                <button class="mt-3"
+                        onclick="location.href='<c:url value="/tortikov/cart"/>'">
                     Оформить заказ
                 </button>
             </div>

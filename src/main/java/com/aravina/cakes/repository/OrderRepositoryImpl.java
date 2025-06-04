@@ -32,6 +32,11 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
+    public void update(Long id, String fio, String cakesName, String address, BigDecimal cost, Status status) {
+        orderMapper.update(id, fio, cakesName, address, cost, status);
+    }
+
+    @Override
     public void delete(Long id) {
         orderMapper.delete(id);
     }

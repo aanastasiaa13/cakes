@@ -21,6 +21,13 @@ public interface OrderMapper {
              @Param("cost") BigDecimal cost,
              @Param("status") Status status);
 
+    void update(@Param("id") Long id,
+                @Param("fio") String fio,
+                @Param("cakesName") String cakesName,
+                @Param("address") String address,
+                @Param("cost") BigDecimal cost,
+                @Param("status") Status status);
+
     void delete(@Param("id") Long id);
 
 }

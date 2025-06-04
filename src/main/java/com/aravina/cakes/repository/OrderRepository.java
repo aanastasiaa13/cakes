@@ -19,6 +19,13 @@ public interface OrderRepository {
              BigDecimal cost,
              Status status);
 
+    void update(Long id,
+                String fio,
+                String cakesName,
+                String address,
+                BigDecimal cost,
+                Status status);
+
     void delete(Long id);
 
 }

@@ -74,8 +74,12 @@
                         <td>${user.phone}</td>
                         <td>${user.role.name}</td>
                         <td>
-                            <i class="bi bi-pencil-square action-icon mr-1"></i>
-                            <i class="bi bi-trash3 action-icon"></i>
+                            <i class="bi bi-pencil-square action-icon mr-1"
+                               onclick="location.href='<c:url value="/tortikov/edit?id=${user.id}&mode=users"/>'">
+                            </i>
+                            <i class="bi bi-trash3 action-icon"
+                               onclick="location.href='<c:url value="/tortikov/user/delete?id=${user.id}"/>'">
+                            </i>
                         </td>
                     </tr>
                 </c:forEach>

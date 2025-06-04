@@ -31,6 +31,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public void update(Long id, String fio, String cakesName, String address, BigDecimal cost, Status status) {
+        orderRepository.update(id, fio, cakesName, address, cost, status);
+    }
+
+    @Override
     public void delete(Long id) {
         orderRepository.delete(id);
     }

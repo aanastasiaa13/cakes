@@ -10,6 +10,15 @@
         FROM users AS u
     </select>
 
+    <select id="findById" resultType="User">
+        SELECT u.id,
+               u.full_name AS fullName,
+               u.phone,
+               u.role
+        FROM users AS u
+        WHERE u.id = #{id}
+    </select>
+
     <select id="findByPhoneAndPassword" resultType="User">
         SELECT u.id,
                u.full_name AS fullName,
@@ -23,5 +32,18 @@
         INSERT INTO users (full_name, phone, password, role)
         VALUES (#{fullName}, #{phone}, #{password}, 'USER')
     </insert>
+
+    <update id="update">
+        UPDATE users
+        SET full_name = #{fullName},
+            phone = #{phone},
+            role = #{role}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM users
+        WHERE id = #{id}
+    </delete>
 
 </mapper>

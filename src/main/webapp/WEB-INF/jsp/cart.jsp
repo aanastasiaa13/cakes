@@ -58,9 +58,9 @@
         </div>
 
         <c:if test="${!authorized}">
-            <div id="menu"
+            <div id="sign-in"
                  class="icon-container">
-                <i class="bi bi-list"></i>
+                <i class="bi bi-person"></i>
             </div>
         </c:if>
 
@@ -70,27 +70,6 @@
                 <i class="bi bi-box-arrow-right"></i>
             </div>
         </c:if>
-    </div>
-
-    <div class="sidebar">
-        <div id="sidebar-close"
-             class="close">
-            <i class="bi bi-x-square"></i>
-        </div>
-
-        <div class="sidebar-content">
-            <div id="sign-in"
-                 class="sidebar-content__item">
-                <i class="bi bi-person-add"></i>
-                Войти / Зарегистрироваться
-            </div>
-
-            <div id="admin-sign-in"
-                 class="sidebar-content__item">
-                <i class="bi bi-person-gear"></i>
-                Войти как администратор
-            </div>
-        </div>
     </div>
 </header>
 
@@ -108,9 +87,10 @@
     </c:if>
 
     <c:if test="${authorized && items.size() > 0}">
-        <form class="row g-3"
+        <form class="row g-3 needs-validation"
               action="<c:url value="/tortikov/process"/>"
-              method="post">
+              method="post"
+              novalidate>
             <div class="cart-title">Оформление заказа</div>
 
             <div class="cart-content">
@@ -178,7 +158,11 @@
                     <input id="fio1"
                            name="fio"
                            class="form-control form-control-lg"
-                           type="text">
+                           type="text"
+                           required>
+                    <div class="invalid-feedback invalid-message">
+                        Укажите ФИО
+                    </div>
                 </div>
 
                 <div class="col-md-6">

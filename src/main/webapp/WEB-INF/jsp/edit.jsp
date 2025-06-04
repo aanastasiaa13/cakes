@@ -58,129 +58,209 @@
 <div class="form-title">Редактирование</div>
 
 <div class="form-container">
-    <form class="row g-3"
-          action=""
-          method="post">
-        <div class="col-md-6">
-            <label for="fio"
-                   class="form-label">
-                ФИО заказчика
-            </label>
-            <input id="fio"
-                   name="fio"
-                   class="form-control form-control-lg"
-                   type="text"
-                   value="${order.fio}">
-        </div>
-        <div class="col-md-6">
-            <label for="cakes"
-                   class="form-label">
-                Наименование торта/ов
-            </label>
-            <select id="cakes"
-                    class="form-select form-select-lg"
-                    multiple>
-                <c:forEach var="cake" items="${cakes}">
-                    <option value="${cake.id}">${cake.name}</option>
-                </c:forEach>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="addresses"
-                   class="form-label">
-                Адрес доставки
-            </label>
-            <select id="addresses"
-                    class="form-select form-select-lg">
-                <option selected
-                        value="ул. Немига, 12">
-                    ул. Немига, 12
-                </option>
-                <option value="ул. Николы Теслы, 19">
-                    ул. Николы Теслы, 19
-                </option>
-                <option value="ул. Притыцкого, 156">
-                    ул. Притыцкого, 156
-                </option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="count"
-                   class="form-label">
-                Количество
-            </label>
-            <input id="count"
-                   class="form-control form-control-lg cart-item__count"
-                   type="number"
-                   value="${order.count}"
-                   min="1"
-                   max="10">
-        </div>
-        <div class="col-12">
-            <label for="cost"
-                   class="form-label">
-                Сумма
-            </label>
-            <input id="cost"
-                   class="form-control form-control-lg cart-item__count"
-                   type="number"
-                   value="${order.cost}"
-                   min="1">
-        </div>
-        <div class="col-12">
-            <label for="status"
-                   class="form-label">
-                Статус
-            </label>
-            <select id="status"
-                    class="form-select form-select-lg">
-                <c:if test="${order.status == 'ACTIVE'}">
+    <c:if test="${mode == 'users'}">
+        <form class="row g-3 needs-validation"
+              action="<c:url value="/tortikov/user/update?id=${user.id}"/>"
+              method="post"
+              novalidate>
+            <div class="col-md-12">
+                <label for="user-fio"
+                       class="form-label">
+                    ФИО
+                </label>
+                <input id="user-fio"
+                       name="fullName"
+                       class="form-control form-control-lg"
+                       type="text"
+                       value="${user.fullName}"
+                       required>
+                <div class="invalid-feedback invalid-message">
+                    Укажите ФИО
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="phone"
+                       class="form-label">
+                    Номер телефона
+                </label>
+                <input id="phone"
+                       type="tel"
+                       class="form-control form-control-lg phone-mask"
+                       name="phone"
+                       value="${user.phone}"
+                       placeholder="+375(99)99-99-999"
+                       aria-label="Номер телефона"
+                       aria-describedby="inputGroupPrepend"
+                       required>
+                <div class="invalid-feedback invalid-message">
+                    Укажите номер телефона
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="roles"
+                       class="form-label">
+                    Роль
+                </label>
+                <select id="roles"
+                        name="role"
+                        class="form-select form-select-lg">
                     <option selected
-                            value="ACTIVE">
-                        Активный
+                            value="${user.role}">
+                            ${user.role.name}
                     </option>
-                    <option value="IN_PROGRESS">
-                        В процессе
-                    </option>
-                    <option value="INACTIVE">
-                        Не активный
-                    </option>
-                </c:if>
+                    <c:if test="${user.role != 'ADMIN'}">
+                        <option value="ADMIN">
+                            Администратор
+                        </option>
+                    </c:if>
+                    <c:if test="${user.role != 'USER'}">
+                        <option value="USER">
+                            Пользователь
+                        </option>
+                    </c:if>
+                </select>
+            </div>
+            <div class="col-12 button-container">
+                <button type="submit"
+                        style="width: 100%">
+                    Изменить
+                </button>
+            </div>
+        </form>
+    </c:if>
 
-                <c:if test="${order.status == 'IN_PROGRESS'}">
+    <c:if test="${mode == 'orders'}">
+        <form class="row g-3 needs-validation"
+              action="<c:url value="/tortikov/order/update?id=${order.id}"/>"
+              method="post"
+              novalidate>
+            <div class="col-md-6">
+                <label for="fio"
+                       class="form-label">
+                    ФИО заказчика
+                </label>
+                <input id="fio"
+                       name="fio"
+                       class="form-control form-control-lg"
+                       type="text"
+                       value="${order.fio}"
+                       required>
+                <div class="invalid-feedback invalid-message">
+                    Укажите ФИО
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="cakesName"
+                       class="form-label">
+                    Наименование торта/ов, шт.
+                </label>
+                <input id="cakesName"
+                       name="cakesName"
+                       class="form-control form-control-lg"
+                       type="text"
+                       value="${order.cakesName}"
+                       required>
+                <div class="invalid-feedback invalid-message">
+                    Укажите наименование
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="addresses"
+                       class="form-label">
+                    Адрес доставки
+                </label>
+                <select id="addresses"
+                        name="address"
+                        class="form-select form-select-lg">
                     <option selected
-                            value="IN_PROGRESS">
-                        В процессе
+                            value="${order.address}">
+                            ${order.address}
                     </option>
-                    <option value="ACTIVE">
-                        Активный
-                    </option>
-                    <option value="INACTIVE">
-                        Не активный
-                    </option>
-                </c:if>
+                    <c:if test="${order.address != 'ул. Немига, 12'}">
+                        <option value="ул. Немига, 12">
+                            ул. Немига, 12
+                        </option>
+                    </c:if>
+                    <c:if test="${order.address != 'ул. Николы Теслы, 19'}">
+                        <option value="ул. Николы Теслы, 19">
+                            ул. Николы Теслы, 19
+                        </option>
+                    </c:if>
+                    <c:if test="${order.address != 'ул. Притыцкого, 156'}">
+                        <option value="ул. Притыцкого, 156">
+                            ул. Притыцкого, 156
+                        </option>
+                    </c:if>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="cost"
+                       class="form-label">
+                    Сумма
+                </label>
+                <input id="cost"
+                       name="cost"
+                       class="form-control form-control-lg cart-item__count"
+                       type="number"
+                       value="${order.cost}"
+                       min="1">
+            </div>
+            <div class="col-12">
+                <label for="status"
+                       class="form-label">
+                    Статус
+                </label>
+                <select id="status"
+                        name="status"
+                        class="form-select form-select-lg">
+                    <c:if test="${order.status == 'ACTIVE'}">
+                        <option selected
+                                value="ACTIVE">
+                            Активный
+                        </option>
+                        <option value="IN_PROGRESS">
+                            В процессе
+                        </option>
+                        <option value="INACTIVE">
+                            Не активный
+                        </option>
+                    </c:if>
 
-                <c:if test="${order.status == 'INACTIVE'}">
-                    <option selected
-                            value="INACTIVE">
-                        Не активный
-                    </option>
-                    <option value="IN_PROGRESS">
-                        В процессе
-                    </option>
-                    <option value="ACTIVE">
-                        Активный
-                    </option>
-                </c:if>
-            </select>
-        </div>
-        <div class="col-12 button-container">
-            <button type="submit"
-                    style="width: 100%">
-                Изменить
-            </button>
-        </div>
-    </form>
+                    <c:if test="${order.status == 'IN_PROGRESS'}">
+                        <option selected
+                                value="IN_PROGRESS">
+                            В процессе
+                        </option>
+                        <option value="ACTIVE">
+                            Активный
+                        </option>
+                        <option value="INACTIVE">
+                            Не активный
+                        </option>
+                    </c:if>
+
+                    <c:if test="${order.status == 'INACTIVE'}">
+                        <option selected
+                                value="INACTIVE">
+                            Не активный
+                        </option>
+                        <option value="IN_PROGRESS">
+                            В процессе
+                        </option>
+                        <option value="ACTIVE">
+                            Активный
+                        </option>
+                    </c:if>
+                </select>
+            </div>
+            <div class="col-12 button-container">
+                <button type="submit"
+                        style="width: 100%">
+                    Изменить
+                </button>
+            </div>
+        </form>
+    </c:if>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -191,5 +271,15 @@
         integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
         crossorigin="anonymous">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"
+        type="text/javascript">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js"
+        type="text/javascript">
+</script>
+<script>
+    $(".phone-mask").mask("+375(99)99-99-999");
+</script>
+<script src="/js/script.js"></script>
 </body>
 </html>

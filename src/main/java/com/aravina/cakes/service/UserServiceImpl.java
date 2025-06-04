@@ -1,5 +1,6 @@
 package com.aravina.cakes.service;
 
+import com.aravina.cakes.model.Role;
 import com.aravina.cakes.model.User;
 import com.aravina.cakes.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +22,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findById(Long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
     public User findByPhoneAndPassword(String phone, String password) {
         return userRepository.findByPhoneAndPassword(phone, password);
     }
@@ -36,4 +42,15 @@ public class UserServiceImpl implements UserService {
 
         return session.getAttribute("userId") != null;
     }
+
+    @Override
+    public void update(Long id, String fullName, String phone, Role role) {
+        userRepository.update(id, fullName, phone, role);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.delete(id);
+    }
+
 }

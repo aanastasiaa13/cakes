@@ -28,6 +28,16 @@
         VALUES (#{fio}, #{cakesName}, #{address}, #{cost}, #{status})
     </insert>
 
+    <update id="update">
+        UPDATE orders
+        SET fio = #{fio},
+            cakes_name = #{cakesName},
+            address = #{address},
+            cost = #{cost},
+            status = #{status}
+        WHERE id = #{id}
+    </update>
+
     <delete id="delete">
         DELETE FROM orders
         WHERE id = #{id}

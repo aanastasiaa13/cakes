@@ -83,7 +83,9 @@
                             <i class="bi bi-pencil-square action-icon mr-1"
                                onclick="location.href='<c:url value="/tortikov/edit?id=${order.id}&mode=orders"/>'">
                             </i>
-                            <i class="bi bi-trash3 action-icon"></i>
+                            <i class="bi bi-trash3 action-icon"
+                               onclick="location.href='<c:url value="/tortikov/order/delete?id=${order.id}"/>'">
+                            </i>
                         </td>
                     </tr>
                 </c:forEach>

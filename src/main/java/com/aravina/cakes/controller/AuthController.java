@@ -1,5 +1,6 @@
 package com.aravina.cakes.controller;
 
+import com.aravina.cakes.model.Role;
 import com.aravina.cakes.model.User;
 import com.aravina.cakes.service.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -32,6 +33,10 @@ public class AuthController {
 
         session.setAttribute("userId", user.getId());
         session.setAttribute("userRole", user.getRole());
+
+        if (user.getRole().equals(Role.ADMIN)) {
+            return "redirect:/tortikov/orders";
+        }
 
         return "redirect:/tortikov/main";
     }
