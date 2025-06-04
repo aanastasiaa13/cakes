@@ -66,7 +66,6 @@
     background-image: url('../images/list-background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 2400px;
     padding: 0 117px;
     box-shadow: 0 15px 95px 120px rgb(255 255 255);
 }
@@ -82,7 +81,7 @@
 .cakes-container__cakes {
     margin: 200px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -102,11 +101,15 @@
 }
 
 .cake-image {
+    width: 370px;
+    height: 272px;
     box-shadow: 0 15px 36px 10px rgb(0 0 0 / 20%);
     border-radius: 40px 40px 20px 20px;
+    object-fit: cover;
 }
 
 .cake-name {
+    text-align: center;
     font-size: 3rem;
     font-weight: 500;
     padding: 30px 0;

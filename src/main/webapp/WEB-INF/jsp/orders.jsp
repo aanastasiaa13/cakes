@@ -69,6 +69,7 @@
                 <th scope="col">Номер</th>
                 <th scope="col">ФИО заказчика</th>
                 <th scope="col">Наименование торта/ов, шт.</th>
+                <th scope="col">Адрес доставки</th>
                 <th scope="col">Сумма</th>
                 <th scope="col">Статус</th>
                 <th scope="col">Действие</th>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aravina.cakes.mapper.CartMapper">
+
+    <select id="findAll" resultType="CartItem">
+        SELECT c.id,
+               c.cake_name AS cakeName,
+               c.cake_price AS cakePrice,
+               c.cake_image_path AS cakeImagePath
+        FROM cart AS c
+    </select>
+
+    <insert id="add">
+        INSERT INTO cart (cake_name, cake_price, cake_image_path)
+        VALUES (#{cakeName}, #{cakePrice}, #{cakeImagePath})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM cart
+        WHERE id = #{id}
+    </delete>
+
+</mapper>

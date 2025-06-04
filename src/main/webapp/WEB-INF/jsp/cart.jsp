@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Клюквенный торт с маскарпоне</title>
+    <title>Корзина</title>
     <link rel="icon"
           href="<c:url value="/images/logo.svg"/>">
 
@@ -21,7 +21,7 @@
           href="<c:url value="/css/styles.css"/>">
     <link type="text/css"
           rel="stylesheet"
-          href="<c:url value="/css/cake.css"/>">
+          href="<c:url value="/css/cart.css"/>">
 </head>
 <body>
 <header class="_container">
@@ -66,32 +66,67 @@
     </div>
 </header>
 
-<div class="cake-container _container">
-    <div class="cake">
-        <img class="cake-image"
-             src="${cake.imagePath}"
-             alt="${cake.name}">
+<div class="cart-container _container">
+    <div class="cart-title">Оформление заказа</div>
 
-        <div class="cake-info">
-            <div class="cake-name">
-                ${cake.name}
-            </div>
+    <div class="cart-content">
+        <c:forEach var="item" items="${items}">
+            <div class="cart-item__container">
+                <div class="cart-item">
+                    <div class="cart-item__one">
+                        <img class="cart-item__image"
+                             src="${item.cakeImagePath}"
+                             alt="${item.cakeName}">
+                        <div class="cart-item__name">${item.cakeName}"</div>
+                    </div>
 
-            <div class="cake-description">
-                ${cake.description}
-            </div>
+                    <div class="cart-item__two">
+                        <input class="form-control form-control-lg cart-item__count"
+                               type="number"
+                               value="1"
+                               min="1"
+                               max="10">
+                        <div class="cart-item__price">
+                            ${item.cakePrice} р.
+                        </div>
+                    </div>
 
-            <div class="flex align-items-center">
-                <div class="cake-price">
-                    ${cake.price} р.
+                    <div class="cart-item__action"
+                         onclick="location.href='<c:url value="/tortikov/cart/delete?id=${item.id}"/>'">
+                        <i class="bi bi-trash3 action-icon"></i>
+                    </div>
                 </div>
 
-                <button type="button"
-                        onclick="location.href='<c:url value="/tortikov/cart/add?id=${cake.id}"/>'">
-                    В корзину
-                    <i class="bi bi-cart3"></i>
-                </button>
+                <div class="line"></div>
             </div>
+        </c:forEach>
+
+        <div class="cart-item__container">
+            <div class="cart-item">
+                <div class="cart-item__one">
+                    <img class="cart-item__image"
+                         src="/images/cakes/praga.png"
+                         alt="Praga">
+                    <div class="cart-item__name">Торт "Прага"</div>
+                </div>
+
+                <div class="cart-item__two">
+                    <input class="form-control form-control-lg cart-item__count"
+                           type="number"
+                           value="1"
+                           min="1"
+                           max="10">
+                    <div class="cart-item__price">
+                        30 р.
+                    </div>
+                </div>
+
+                <div class="cart-item__action">
+                    <i class="bi bi-trash3 action-icon"></i>
+                </div>
+            </div>
+
+             <div class="line"></div>
         </div>
     </div>
 </div>
