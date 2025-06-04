@@ -10,9 +10,29 @@
         FROM cart AS c
     </select>
 
+    <select id="findCartItemsByUserId" resultType="CartItem">
+        SELECT c.id,
+               c.cake_name AS cakeName,
+               c.cake_price AS cakePrice,
+               c.cake_image_path AS cakeImagePath
+        FROM cart AS c,
+             users_cart AS uc
+        WHERE uc.user_id = #{id}
+              AND c.id = uc.cart_item_id
+    </select>
+
+    <select id="getCurrentId" resultType="long">
+        SELECT CURRVAL('cart_id_seq')
+    </select>
+
     <insert id="add">
         INSERT INTO cart (cake_name, cake_price, cake_image_path)
-        VALUES (#{cakeName}, #{cakePrice}, #{cakeImagePath})
+        VALUES (#{cake.name}, #{cake.price}, #{cake.imagePath})
+    </insert>
+
+    <insert id="createCartItemLink">
+        INSERT INTO users_cart (user_id, cart_item_id)
+        VALUES (#{userId}, #{cartItemId})
     </insert>
 
     <delete id="delete">

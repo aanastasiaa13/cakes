@@ -28,7 +28,7 @@
 </head>
 <body>
 <header class="_container">
-    <a href="#">
+    <a href="<c:url value="/tortikov/main"/>">
         <img src="<c:url value="/images/logo.svg"/>"
              alt="Tortikov">
     </a>
@@ -36,26 +36,21 @@
         <ul>
             <li class="mr-3">
                 <a class="link"
-                   href="#">
+                   href="<c:url value="/tortikov/orders"/>">
                     Заказы
-                </a>
-            </li>
-            <li class="mr-3">
-                <a class="link"
-                   href="#">
-                    Торты
                 </a>
             </li>
             <li>
                 <a class="link"
-                   href="#">
+                   href="<c:url value="/tortikov/users"/>">
                     Пользователи
                 </a>
             </li>
         </ul>
     </nav>
 
-    <div class="icon-container">
+    <div class="icon-container"
+         onclick="location.href='<c:url value="/tortikov/auth/sign-out"/>'">
         <i class="bi bi-box-arrow-right"></i>
     </div>
 </header>
@@ -76,39 +71,22 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Петров Петр Петрович</td>
-                <td>Клюквенный торт с маскарпоне, 1 шт.</td>
-                <td>30 р.</td>
-                <td>Оформлен</td>
-                <td>
-                    <i class="bi bi-pencil-square action-icon mr-1"></i>
-                    <i class="bi bi-trash3 action-icon"></i>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Петров Петр Петрович</td>
-                <td>Клюквенный торт с маскарпоне, 1 шт.</td>
-                <td>30 р.</td>
-                <td>Оформлен</td>
-                <td>
-                    <i class="bi bi-pencil-square action-icon mr-1"></i>
-                    <i class="bi bi-trash3 action-icon"></i>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Петров Петр Петрович</td>
-                <td>Клюквенный торт с маскарпоне, 1 шт. <br> Клубничный торт со сливками, 2 шт.</td>
-                <td>30 р.</td>
-                <td>Оформлен</td>
-                <td>
-                    <i class="bi bi-pencil-square action-icon mr-1"></i>
-                    <i class="bi bi-trash3 action-icon"></i>
-                </td>
-            </tr>
+                <c:forEach var="order" items="${orders}">
+                    <tr>
+                        <th scope="row">${order.id}</th>
+                        <td>${order.fio}</td>
+                        <td>${order.cakesName}</td>
+                        <td>${order.address}</td>
+                        <td>${order.cost} р.</td>
+                        <td>${order.status.name}</td>
+                        <td>
+                            <i class="bi bi-pencil-square action-icon mr-1"
+                               onclick="location.href='<c:url value="/tortikov/edit?id=${order.id}&mode=orders"/>'">
+                            </i>
+                            <i class="bi bi-trash3 action-icon"></i>
+                        </td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>
@@ -122,6 +100,5 @@
         integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
         crossorigin="anonymous">
 </script>
-<script src="/js/script.js"></script>
 </body>
 </html>

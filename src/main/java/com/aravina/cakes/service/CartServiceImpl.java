@@ -1,10 +1,12 @@
 package com.aravina.cakes.service;
 
+import com.aravina.cakes.model.Cake;
 import com.aravina.cakes.model.CartItem;
 import com.aravina.cakes.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -19,8 +21,23 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void add(String cakeName, double cakePrice, String cakeImagePath) {
-        cartRepository.add(cakeName, cakePrice, cakeImagePath);
+    public List<CartItem> findCartItemsByUserId(Long id) {
+        return cartRepository.findCartItemsByUserId(id);
+    }
+
+    @Override
+    public Long getCurrentId() {
+        return cartRepository.getCurrentId();
+    }
+
+    @Override
+    public void add(Cake cake) {
+        cartRepository.add(cake);
+    }
+
+    @Override
+    public void createCartItemLink(Long userId, Long cartItemId) {
+        cartRepository.createCartItemLink(userId, cartItemId);
     }
 
     @Override

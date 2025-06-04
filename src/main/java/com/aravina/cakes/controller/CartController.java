@@ -3,6 +3,7 @@ package com.aravina.cakes.controller;
 import com.aravina.cakes.model.Cake;
 import com.aravina.cakes.service.CakeService;
 import com.aravina.cakes.service.CartService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +19,17 @@ public class CartController {
     private CakeService cakeService;
 
     @GetMapping("/add")
-    public String add(@RequestParam("id") Long id) {
+    public String add(HttpSession session, @RequestParam("id") Long id) {
         Cake cake = cakeService.findById(id);
+        Long userId = (Long) session.getAttribute("userId");
 
-        cartService.add(cake.getName(), cake.getPrice(), cake.getImagePath());
+        if (userId != null) {
+            cartService.add(cake);
+            Long cartItemId = cartService.getCurrentId();
+            cartService.createCartItemLink(userId, cartItemId);
+        }
 
-        return "redirect:/tortikov/cake?id=" + cake.getId();
+        return "redirect:/tortikov/cart";
     }
 
     @GetMapping("/delete")

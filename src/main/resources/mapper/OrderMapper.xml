@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aravina.cakes.mapper.OrderMapper">
+
+    <select id="findAll" resultType="Order">
+        SELECT o.id,
+               o.fio,
+               o.cakes_name AS cakesName,
+               o.address,
+               o.cost,
+               o.status
+        FROM orders AS o
+    </select>
+
+    <select id="findById" resultType="Order">
+        SELECT o.id,
+               o.fio,
+               o.cakes_name AS cakesName,
+               o.address,
+               o.cost,
+               o.status
+        FROM orders AS o
+        WHERE o.id = #{id}
+    </select>
+
+    <insert id="add">
+        INSERT INTO orders (fio, cakes_name, address, cost, status)
+        VALUES (#{fio}, #{cakesName}, #{address}, #{cost}, #{status})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM orders
+        WHERE id = #{id}
+    </delete>
+
+</mapper>

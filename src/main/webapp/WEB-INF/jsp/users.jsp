@@ -28,7 +28,7 @@
 </head>
 <body>
 <header class="_container">
-    <a href="#">
+    <a href="<c:url value="/tortikov/main"/>">
         <img src="<c:url value="/images/logo.svg"/>"
              alt="Tortikov">
     </a>
@@ -36,26 +36,21 @@
         <ul>
             <li class="mr-3">
                 <a class="link"
-                   href="#">
+                   href="<c:url value="/tortikov/orders"/>">
                     Заказы
-                </a>
-            </li>
-            <li class="mr-3">
-                <a class="link"
-                   href="#">
-                    Торты
                 </a>
             </li>
             <li>
                 <a class="link"
-                   href="#">
+                   href="<c:url value="/tortikov/users"/>">
                     Пользователи
                 </a>
             </li>
         </ul>
     </nav>
 
-    <div class="icon-container">
+    <div class="icon-container"
+         onclick="location.href='<c:url value="/tortikov/auth/sign-out"/>'">
         <i class="bi bi-box-arrow-right"></i>
     </div>
 </header>

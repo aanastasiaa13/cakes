@@ -25,7 +25,7 @@
 </head>
 <body>
 <header class="_container">
-    <a href="#">
+    <a href="<c:url value="/tortikov/main"/>">
         <img src="<c:url value="/images/logo.svg"/>"
              alt="Tortikov">
     </a>
@@ -52,16 +52,45 @@
         </ul>
     </nav>
     <div class="flex">
-        <div class="icon-container mr-1">
-            <a href="#">
-                <i class="bi bi-person-fill"></i>
+        <div class="icon-container">
+            <a href="<c:url value="/tortikov/cart"/>">
+                <i class="bi bi-cart3"></i>
             </a>
         </div>
 
-        <div class="icon-container">
-            <a href="#">
-                <i class="bi bi-cart3"></i>
-            </a>
+        <c:if test="${!authorized}">
+            <div id="menu"
+                 class="icon-container">
+                <i class="bi bi-list"></i>
+            </div>
+        </c:if>
+
+        <c:if test="${authorized}">
+            <div class="icon-container"
+                 onclick="location.href='<c:url value="/tortikov/auth/sign-out"/>'">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+        </c:if>
+    </div>
+
+    <div class="sidebar">
+        <div id="sidebar-close"
+             class="close">
+            <i class="bi bi-x-square"></i>
+        </div>
+
+        <div class="sidebar-content">
+            <div id="sign-in"
+                 class="sidebar-content__item">
+                <i class="bi bi-person-add"></i>
+                Войти / Зарегистрироваться
+            </div>
+
+            <div id="admin-sign-in"
+                 class="sidebar-content__item">
+                <i class="bi bi-person-gear"></i>
+                Войти как администратор
+            </div>
         </div>
     </div>
 </header>
@@ -97,7 +126,7 @@
 </div>
 
 <footer class="_container">
-    <a href="#">
+    <a href="<c:url value="/tortikov/main"/>">
         <img src="<c:url value="/images/logo.svg"/>"
              alt="Tortikov">
     </a>

@@ -237,7 +237,14 @@ footer {
 
 /* --- */
 
-.form-control:focus {
+.form-control,
+.form-select,
+.input-group-text {
+    border-color: #969696;
+}
+
+.form-control:focus,
+.form-select:focus {
     border-color: #b7b7b7;
     box-shadow: 0 0 0 .25rem rgb(187 187 187 / 25%);
 }

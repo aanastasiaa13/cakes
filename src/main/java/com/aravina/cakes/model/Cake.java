@@ -3,6 +3,8 @@ package com.aravina.cakes.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cake {
@@ -11,7 +13,7 @@ public class Cake {
     private String name;
     private String shortDescription;
     private String description;
-    private double price;
+    private BigDecimal price;
     private String imagePath;
 
     public Long getId() {
@@ -30,7 +32,7 @@ public class Cake {
         return description;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 

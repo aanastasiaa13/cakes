@@ -3,13 +3,15 @@ package com.aravina.cakes.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartItem {
 
     private Long id;
     private String cakeName;
-    private String cakePrice;
+    private BigDecimal cakePrice;
     private String cakeImagePath;
 
     public Long getId() {
@@ -24,11 +26,11 @@ public class CartItem {
         this.cakeName = cakeName;
     }
 
-    public String getCakePrice() {
+    public BigDecimal getCakePrice() {
         return cakePrice;
     }
 
-    public void setCakePrice(String cakePrice) {
+    public void setCakePrice(BigDecimal cakePrice) {
         this.cakePrice = cakePrice;
     }
 
