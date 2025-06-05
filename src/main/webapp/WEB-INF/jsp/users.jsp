@@ -36,6 +36,12 @@
         <ul>
             <li class="mr-3">
                 <a class="link"
+                   href="<c:url value="/tortikov/main"/>">
+                    Главная
+                </a>
+            </li>
+            <li class="mr-3">
+                <a class="link"
                    href="<c:url value="/tortikov/orders"/>">
                     Заказы
                 </a>

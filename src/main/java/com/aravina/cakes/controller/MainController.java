@@ -48,6 +48,7 @@ public class MainController {
         model.addAttribute("cakes", cakes);
         model.addAttribute("exampleCakeOne", exampleCakeOne);
         model.addAttribute("exampleCakeTwo", exampleCakeTwo);
+        model.addAttribute("userRole", request.getSession().getAttribute("userRole"));
 
         return "main";
     }
@@ -61,6 +62,7 @@ public class MainController {
 
         model.addAttribute("cake", cake);
         model.addAttribute("authorized", isUserAuthorized);
+        model.addAttribute("userRole", request.getSession().getAttribute("userRole"));
 
         return "cake";
     }
@@ -79,6 +81,7 @@ public class MainController {
 
         model.addAttribute("items", items);
         model.addAttribute("authorized", isUserAuthorized);
+        model.addAttribute("userRole", request.getSession().getAttribute("userRole"));
 
         return "cart";
     }

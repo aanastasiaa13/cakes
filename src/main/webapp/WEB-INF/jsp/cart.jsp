@@ -49,6 +49,14 @@
                     Контакты
                 </a>
             </li>
+            <c:if test="${userRole == 'ADMIN'}">
+                <li>
+                    <a class="link"
+                       href="<c:url value="/tortikov/orders"/>">
+                        Администратор
+                    </a>
+                </li>
+            </c:if>
         </ul>
     </nav>
     <div class="flex">
